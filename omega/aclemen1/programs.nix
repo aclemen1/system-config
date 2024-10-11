@@ -37,6 +37,15 @@
     EDITOR = "nvim";
   };
   programs = {
+    tmux = {
+      enable = true;
+      prefix = "C-b";
+      clock24 = true;
+      baseIndex = 1;
+      plugins = with pkgs; [
+        tmuxPlugins.sensible
+      ];
+    };
     bat = {
       enable = true;
       config = {
@@ -93,11 +102,9 @@
       autosuggestion.enable = true;
       syntaxHighlighting.enable = true;
       shellAliases = {
-        ls = "eza";
-        ll = "eza -l";
-        la = "eza -la";
         cat = "bat";
         man = "batman";
+        m = "make";
       };
       initExtra = ''
         neofetch

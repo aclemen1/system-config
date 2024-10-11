@@ -39,6 +39,8 @@
         };
       };
 
+      programs.zsh.enable = true; # IMPORTANT: This must be true for Home Manager to work
+
       environment.systemPackages = with pkgs; [ 
         coreutils
       ];
