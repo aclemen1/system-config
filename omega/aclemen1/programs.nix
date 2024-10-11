@@ -1,6 +1,7 @@
 {pkgs, ...}: 
 
 {
+
   home.packages = with pkgs; [
     ripgrep
     fd
@@ -40,7 +41,18 @@
       enable = true;
       config = {
         theme = "TwoDark";
+        pager = "less -FR";
+        map-syntax = [ 
+          "*.jenkinsfile:Groovy"
+          "*.props:Java Properties"
+        ];
       };
+      extraPackages = with pkgs.bat-extras; [
+        batdiff
+        batman
+        batgrep
+        batwatch  
+      ];
     };
     fzf = {
       enableZshIntegration = true;
@@ -71,10 +83,9 @@
           "kubectl"
           "helm"
           "fzf"
-          "zsh-autosuggestions"
-          "zsh-syntax-highlighting"
           "history-substring-search"
           "z"
+          "man"
         ];
         theme = "robbyrussell";
       };
@@ -85,14 +96,25 @@
         ls = "eza";
         ll = "eza -l";
         la = "eza -la";
+        cat = "bat";
+        man = "batman";
       };
+      initExtra = ''
+        neofetch
+      '';
     };
     starship = {
       enable = true;
       enableZshIntegration = true;
     };
-    alacritty = {
+    neovim = {
       enable = true;
+      defaultEditor = true;
+      viAlias = true;
+      vimAlias = true;
+      plugins = with pkgs.vimPlugins; [
+        LazyVim
+      ];
     };
   };
 }
