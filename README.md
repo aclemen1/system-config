@@ -15,3 +15,50 @@ The `Makefile` in this repository provides convenient shortcuts for common opera
 These commands simplify the process of managing and updating the system configuration. The `switch` command applies changes, while the `update` command ensures you're using the latest versions of all dependencies before applying changes.
 
 To use these commands, navigate to the directory containing the Makefile in your terminal and run the desired `make` command.
+
+
+## Useful NixOS Resources
+
+Here's a list of valuable NixOS resources available on the web:
+
+1. **NixOS Packages Search**:
+   - https://search.nixos.org/packages
+   - Search for available packages in the Nixpkgs collection.
+
+2. **NixOS Options Search**:
+   - https://search.nixos.org/options
+   - Search for configuration options available in NixOS.
+
+3. **Home Manager Options**:
+   - https://nix-community.github.io/home-manager/options.html
+   - Comprehensive list of options available in Home Manager.
+
+4. **NixOS Wiki**:
+   - https://nixos.wiki/
+   - Community-maintained wiki with various guides and information.
+
+5. **Nix Package Manager Guide**:
+   - https://nixos.org/manual/nix/stable/
+   - Official documentation for the Nix package manager.
+
+6. **NixOS Manual**:
+   - https://nixos.org/manual/nixos/stable/
+   - Official NixOS system configuration manual.
+
+7. **Nixpkgs Manual**:
+   - https://nixos.org/manual/nixpkgs/stable/
+   - Guide to the Nix Packages collection.
+
+8. **NixOS Discourse Forum**:
+   - https://discourse.nixos.org/
+   - Community forum for discussions, questions, and sharing.
+
+9. **r/NixOS Subreddit**:
+   - https://www.reddit.com/r/NixOS/
+   - Reddit community for NixOS users and enthusiasts.
+
+10. **NixOS GitHub Repository**:
+    - https://github.com/NixOS/nixpkgs
+    - Source code for Nixpkgs and place to report issues.
+
+These resources should help you navigate the NixOS ecosystem, find packages, understand configuration options, and get community support when needed.
