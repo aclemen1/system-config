@@ -25,4 +25,5 @@
   "HazeOver"
   "loom"
   "devpod"
+  "aerospace"
 ]

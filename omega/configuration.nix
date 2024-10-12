@@ -17,6 +17,7 @@
         };
         brews = import ./formulae.nix;
         casks = import ./casks.nix;
+        taps = import ./taps.nix;
       };
 
       security.pam.enableSudoTouchIdAuth = true;
@@ -32,6 +33,8 @@
           finder._FXShowPosixPathInTitle = true;
           NSGlobalDomain.InitialKeyRepeat = 14;
           NSGlobalDomain.KeyRepeat = 1;
+          NSGlobalDomain.NSWindowShouldDragOnGesture = true;
+          NSGlobalDomain.NSAutomaticWindowAnimationsEnabled = false;          
         };
         keyboard = {
           enableKeyMapping = true;
@@ -40,7 +43,7 @@
       };
 
       programs.zsh.enable = true; # IMPORTANT: This must be true for Home Manager to work
-
+      
       environment.systemPackages = with pkgs; [ 
         coreutils
       ];
@@ -67,7 +70,7 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         users.aclemen1 = {
-          home.stateVersion = "24.05";
+          home.stateVersion = "24.11";
           imports = [ ./aclemen1/programs.nix ];
         };
       };

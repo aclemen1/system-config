@@ -30,11 +30,17 @@
     tig
     gitu
     devpod
+    cmatrix
   ];
   home.sessionVariables = {
     PAGER = "less";
     CLICOLOR = 1;
     EDITOR = "nvim";
+    LANG = "en_US.UTF-8";
+    LC_ALL = "en_US.UTF-8";
+  };
+  home.file = {
+    ".aerospace.toml".source = ./files/aerospace.toml;
   };
   programs = {
     tmux = {
