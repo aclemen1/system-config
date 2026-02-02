@@ -1,11 +1,11 @@
 .PHONY: default switch update
 
-default: switch
+.DEFAULT := switch
 
 switch:
-	darwin-rebuild switch --flake .
+	sudo darwin-rebuild switch --flake .#omicron
 
 update:
 	nix flake update
-	darwin-rebuild switch --flake .
+	sudo darwin-rebuild switch --flake .#omicron
 

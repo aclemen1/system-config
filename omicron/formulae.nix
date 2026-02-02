@@ -1,0 +1,15 @@
+[
+  "displayplacer"
+  "dashlane/tap/dashlane-cli"
+  # "borders"
+  "syncthing"
+  "zellij"
+  "devspace"
+  "posting"
+  "navi"
+  "jj"
+  "lazyjj"
+  "just"
+  "gemini-cli"
+  "gh"
+]
