@@ -7,8 +7,9 @@
 
       nix.extraOptions = "experimental-features = nix-command flakes";
 
+      ids.gids.nixbld = 30000;
+
       environment.shells = [ pkgs.bash pkgs.zsh ];
-      environment.loginShell = pkgs.zsh;
 
       homebrew = {
         enable = true;
@@ -20,13 +21,15 @@
         taps = import ./taps.nix;
       };
 
-      security.pam.enableSudoTouchIdAuth = true;
+      # security.pam.enableSudoTouchIdAuth = true;
+      security.pam.services.sudo_local.touchIdAuth = true;
 
-      services.nix-daemon.enable = true;
+      # services.nix-daemon.enable = true;
 
       fonts.packages = import ./fonts.nix pkgs;
 
       system = {
+        primaryUser = "aclemen1";
         defaults = {
           finder.AppleShowAllExtensions = true;
           NSGlobalDomain.AppleShowAllExtensions = true;
@@ -39,7 +42,7 @@
         keyboard = {
           enableKeyMapping = true;
           # remapCapsLockToEscape = true;
-        };
+          };
       };
 
       programs.zsh.enable = true; # IMPORTANT: This must be true for Home Manager to work
@@ -70,7 +73,7 @@
         useGlobalPkgs = true;
         useUserPackages = true;
         users.aclemen1 = {
-          home.stateVersion = "24.11";
+          home.stateVersion = "24.05";
           imports = [ ./aclemen1/programs.nix ];
         };
       };

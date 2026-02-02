@@ -1,6 +1,6 @@
 { pkgs, ... }:
 
 with pkgs; [
-  nerdfonts
+  nerd-fonts.droid-sans-mono
   font-awesome
 ]
