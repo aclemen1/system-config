@@ -73,9 +73,49 @@ in
       prefix = "C-b";
       clock24 = true;
       baseIndex = 1;
+      keyMode = "vi";
+      mouse = true;
+      terminal = "screen-256color";
+      escapeTime = 10;
+      historyLimit = 50000;
       plugins = with pkgs; [
         tmuxPlugins.sensible
       ];
+      extraConfig = ''
+        # True color support
+        set -ag terminal-overrides ",xterm-256color:RGB"
+
+        # Focus events (utile pour neovim)
+        set -g focus-events on
+
+        # Vi copy-mode avec presse-papier macOS
+        bind-key -T copy-mode-vi v send-keys -X begin-selection
+        bind-key -T copy-mode-vi C-v send-keys -X rectangle-toggle
+        bind-key -T copy-mode-vi y send-keys -X copy-pipe-and-cancel "pbcopy"
+        bind-key -T copy-mode-vi MouseDragEnd1Pane send-keys -X copy-pipe-and-cancel "pbcopy"
+
+        # Splits intuitifs (dans le répertoire courant)
+        bind | split-window -h -c "#{pane_current_path}"
+        bind - split-window -v -c "#{pane_current_path}"
+
+        # Naviguer entre les panes avec vim keys
+        bind h select-pane -L
+        bind j select-pane -D
+        bind k select-pane -U
+        bind l select-pane -R
+
+        # Redimensionner les panes
+        bind -r H resize-pane -L 5
+        bind -r J resize-pane -D 5
+        bind -r K resize-pane -U 5
+        bind -r L resize-pane -R 5
+
+        # Nouveau window dans le répertoire courant
+        bind c new-window -c "#{pane_current_path}"
+
+        # Recharger la config
+        bind r source-file ~/.config/tmux/tmux.conf \; display "Config rechargée"
+      '';
     };
     atuin = {
       enable = true;

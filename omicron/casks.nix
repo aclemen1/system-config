@@ -45,5 +45,6 @@
   "claude-code"
   "mattt/tap/iMCP"
   "mattt/tap/Companion"
+  "wispr-flow"
 ]
   

@@ -2,19 +2,26 @@
 
 This repository contains the system configuration for a macOS setup using Nix and `darwin-rebuild`.
 
-## Makefile
+## Justfile
 
-The `Makefile` in this repository provides convenient shortcuts for common operations:
+The `justfile` provides convenient shortcuts for common operations. Requires [`just`](https://github.com/casey/just).
 
-1. `make` or `make switch`: This is the default target. It runs `darwin-rebuild switch --flake .`, which applies the current configuration to the system.
+### Nix / darwin-rebuild
 
-2. `make update`: This target does two things:
-   - First, it runs `nix flake update` to update all flake inputs to their latest versions.
-   - Then, it runs `darwin-rebuild switch --flake .` to apply the updated configuration to the system.
+| Commande | Description |
+|---|---|
+| `just` ou `just switch` | Applique la configuration (`darwin-rebuild switch --flake .#omicron`) |
+| `just update` | Met à jour les inputs du flake (`nix flake update`) puis applique |
 
-These commands simplify the process of managing and updating the system configuration. The `switch` command applies changes, while the `update` command ensures you're using the latest versions of all dependencies before applying changes.
+### Claude Code — plugins
 
-To use these commands, navigate to the directory containing the Makefile in your terminal and run the desired `make` command.
+| Commande | Description |
+|---|---|
+| `just cc-install` | Installation complète (marketplaces + tous les plugins) |
+| `just cc-marketplaces` | Enregistre `aclemen1-marketplace` et `unisis-marketplace` |
+| `just cc-plugins-user` | Installe `version-control` dans le scope `user` |
+| `just cc-plugins-alain` | Installe `obsidian` et `productivity` dans le vault *Alain Clément* |
+| `just cc-plugins-unisis` | Installe les plugins métier dans le vault *UNISIS* |
 
 
 ## Useful NixOS Resources

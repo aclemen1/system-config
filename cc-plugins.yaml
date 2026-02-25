@@ -1,0 +1,25 @@
+marketplaces:
+  - ~/code/aclemen1/aclemen1-marketplace
+  - ~/code/unisis-unil/unisis-marketplace
+
+installations:
+  - scope: user
+    plugins:
+      - version-control@unisis-marketplace
+
+  - scope: project
+    folder: ~/vaults/Alain Clément
+    plugins:
+      - obsidian@aclemen1-marketplace
+      - productivity@aclemen1-marketplace
+      - doc-authoring@unisis-marketplace
+  
+  - scope: project
+    folder: ~/vaults/UNISIS
+    plugins:
+      - obsidian@aclemen1-marketplace
+      - analytics@unisis-marketplace
+      - compliance@unisis-marketplace
+      - doc-authoring@unisis-marketplace
+      - doc-quality@unisis-marketplace
+      - r-tools@unisis-marketplace
