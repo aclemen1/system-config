@@ -17,7 +17,16 @@ update:
 
 # Enregistre les marketplaces Claude Code
 cc-marketplaces:
-    yq '.marketplaces[]' {{CONFIG}} | sed "s|~|$HOME|" | xargs -I{} claude plugin marketplace add "{}" || true
+    MP_JSON="$HOME/.claude/plugins/known_marketplaces.json"; \
+    yq '.marketplaces[] | [.path, (.autoUpdate // false | tostring)] | join("|")' {{CONFIG}} \
+        | while IFS='|' read -r path autoUpdate; do \
+            expanded=$(echo "$path" | sed "s|~|$HOME|"); \
+            claude plugin marketplace add "$expanded" || true; \
+            if [ "$autoUpdate" = "true" ]; then \
+                name=$(basename "$expanded"); \
+                jq --arg n "$name" '.[$n].autoUpdate = true' "$MP_JSON" > "$MP_JSON.tmp" && mv "$MP_JSON.tmp" "$MP_JSON"; \
+            fi \
+        done
 
 # Installe tous les plugins
 cc-install: cc-marketplaces
@@ -43,5 +52,5 @@ cc-uninstall:
                 claude plugin uninstall "$name" --scope "$scope" || true; \
             fi \
         done
-    yq '.marketplaces[]' {{CONFIG}} | sed "s|~|$HOME|" | xargs -I{} basename {} \
+    yq '.marketplaces[].path' {{CONFIG}} | sed "s|~|$HOME|" | xargs -I{} basename {} \
         | xargs -I{} claude plugin marketplace remove "{}" || true
