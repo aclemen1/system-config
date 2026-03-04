@@ -190,6 +190,8 @@ in
         man = "batman";
         ds = "devspace";
         j = "just";
+        cc = "claude";
+        ccc = "claude --continue";
       };
       initContent = ''
         neofetch

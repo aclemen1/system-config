@@ -42,9 +42,9 @@
   "granola"
   "alt-tab"
   "claude"
-  "claude-code"
   "mattt/tap/iMCP"
   "mattt/tap/Companion"
   "wispr-flow"
+  "db-browser-for-sqlite"
 ]
   

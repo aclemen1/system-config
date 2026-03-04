@@ -18,7 +18,17 @@ installations:
       - productivity@aclemen1-marketplace
       - doc-authoring@unisis-marketplace
       - obsidian@obsidian-skills
-  
+
+  - scope: project
+    folder: ~/vaults/quant
+    plugins:
+      - obsidian@obsidian-skills
+
+  - scope: project
+    folder: ~/vaults/goodies
+    plugins:
+      - obsidian@obsidian-skills
+
   - scope: project
     folder: ~/vaults/UNISIS
     plugins:
@@ -27,6 +37,13 @@ installations:
       - analytics@unisis-marketplace
       - compliance@unisis-marketplace
       - doc-authoring@unisis-marketplace
-      - doc-quality@unisis-marketplace
+      - doc-extraction@unisis-marketplace
       - r-tools@unisis-marketplace
+      - obsidian@obsidian-skills
+
+  - scope: project
+    folder: ~/vaults/Eve Clément
+    plugins:
+      - obsidian@aclemen1-marketplace
+      - productivity@aclemen1-marketplace
       - obsidian@obsidian-skills
