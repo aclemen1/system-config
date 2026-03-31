@@ -72,6 +72,7 @@
       home-manager = {
         useGlobalPkgs = true;
         useUserPackages = true;
+        extraSpecialArgs = { inherit inputs; };
         users.aclemen1 = {
           home.stateVersion = "24.05";
           imports = [ ./aclemen1/programs.nix ];

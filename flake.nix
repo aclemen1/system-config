@@ -16,6 +16,12 @@
     nix-homebrew = {
       url = "github:zhaofengli-wip/nix-homebrew";
     };
+    gws-cli = {
+      url = "github:googleworkspace/cli";
+    };
+    qmd = {
+      url = "github:tobi/qmd";
+    };
     # nixvim = {
     #     url = "github:nix-community/nixvim/nixos-24.11";
     #     inputs.nixpkgs.follows = "nixpkgs";

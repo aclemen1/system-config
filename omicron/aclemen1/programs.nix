@@ -1,4 +1,4 @@
-{pkgs, ...}: 
+{pkgs, inputs, ...}:
 
 let
   # src = pkgs.fetchFromGitLab {
@@ -19,9 +19,15 @@ let
   #   nativeBuildInputs = with pkgs; [ pkg-config ];
   #   buildInputs = with pkgs; [ openssl ];
   # };
+  qmd = (inputs.qmd.packages.${pkgs.system}.default).overrideAttrs (old: {
+    installPhase = builtins.replaceStrings
+      ["src/qmd.ts"] ["src/cli/qmd.ts"]
+      old.installPhase;
+  });
 in
 {
   home.packages = with pkgs; [
+    qmd
     ripgrep
     fd
     curl
@@ -29,7 +35,7 @@ in
     lazygit
     lazydocker
     gitui
-    ast-grep
+    # ast-grep  # FIXME: test cassé upstream (test_scan_invalid_rule_id)
     lua
     luarocks
     wget
@@ -37,26 +43,40 @@ in
     tree-sitter
     ghc
     haskell-language-server
+    ansible
     kubectl
+    kubectx
     kubecolor
     kubie
     kubeseal
+    k9s
+    stern
+    kustomize
+    krew
+    kubetail
     argocd
-    argo
+    argo-workflows
     kubernetes-helm
     jq
     mosh
-    neofetch
+    fastfetch
     tig
     gitu
     devpod
     cmatrix
+    rustup
     # starship-jj
     cursor-cli
+    inputs.gws-cli.packages.aarch64-darwin.default
   ];
   home.language = {
     base = "en_US.UTF-8";
   };
+  home.sessionPath = [
+    "$HOME/.cargo/bin"
+    "/usr/local/texlive/2026/bin/universal-darwin"
+    "/opt/homebrew/opt/libpq/bin"
+  ];
   home.sessionVariables = {
     PAGER = "less";
     CLICOLOR = 1;
@@ -127,6 +147,8 @@ in
         style = "compact";
         enter_accept = true;
         workspaces = true;
+        filter_mode = "session";
+        filter_mode_shell_up_key_binding = "session";
       };
     };
     bat = {
@@ -152,18 +174,23 @@ in
     eza = {
       enable = true;
     };
+    delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
     git = {
       enable = true;
-      delta = {
-        enable = true;
+      settings = {
+        alias = {
+          co = "checkout";
+          br = "branch";
+          st = "status";
+        };
+        user = {
+          name = "Alain Clément";
+          email = "alain@clement.aero";
+        };
       };
-      aliases = {
-        co = "checkout";
-        br = "branch";
-        st = "status";
-      };
-      userName = "Alain Clément";
-      userEmail = "alain@clement.aero";
     };
     zsh = {
       enable = true;
@@ -192,9 +219,12 @@ in
         j = "just";
         cc = "claude";
         ccc = "claude --continue";
+        kctx = "kubectx";
+        kns = "kubens";
+        ccf = "claude --continue --fork-session";
       };
       initContent = ''
-        neofetch
+        fastfetch
       '';
     };
     starship = {

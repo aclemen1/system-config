@@ -12,4 +12,10 @@
   "just"
   "gemini-cli"
   "gh"
+  "bitwarden-cli"
+  "unison"
+  "ffmpeg"
+  "uv"
+  "unisis-unil/tools/cube"
+  "libpq"
 ]

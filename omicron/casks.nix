@@ -29,7 +29,7 @@
   # "HazeOver"
   "devpod"
   # "aerospace"
-  "Syncthing"
+  "syncthing-app"
   "QSyncthingTray"
   "ghostty"
   "mouseless"
@@ -40,11 +40,15 @@
   "calibre"
   # "ollama"
   "granola"
-  "alt-tab"
+  # "alt-tab" # désactivé: cask cassé upstream (clé :on_upgrade invalide)
   "claude"
   "mattt/tap/iMCP"
   "mattt/tap/Companion"
   "wispr-flow"
   "db-browser-for-sqlite"
+  "stillcolor" # Désactive le temporal dithering (FRC) sur Apple Silicon — réduit la fatigue oculaire
+  "tailscale-app"
+  "obsidian"
+  "mactex-no-gui"
 ]
   

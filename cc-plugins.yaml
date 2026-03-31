@@ -23,6 +23,7 @@ installations:
     folder: ~/vaults/quant
     plugins:
       - obsidian@obsidian-skills
+      - productivity@aclemen1-marketplace
 
   - scope: project
     folder: ~/vaults/goodies
