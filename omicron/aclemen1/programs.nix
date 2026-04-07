@@ -86,6 +86,8 @@ in
   };
   home.file = {
     ".aerospace.toml".source = ./files/aerospace.toml;
+    ".config/neru/config.toml".source = ./files/neru.toml;
+    ".config/karabiner/karabiner.json".source = ./files/karabiner.json;
   };
   programs = {
     tmux = {

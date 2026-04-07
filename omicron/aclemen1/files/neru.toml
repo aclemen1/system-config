@@ -1,0 +1,178 @@
+# Neru — config Alain Clément
+# Grille 3×3 main droite (index/majeur/annulaire), activation par tap Karabiner
+#
+#  u  i  o     ← haut de l'écran
+#  j  k  l     ← milieu (home row)
+#  m  ,  .     ← bas de l'écran
+#
+# Activation (toggle) :
+#   tap Left Ctrl    → F18 → grille on/off
+#   tap Left Option  → F17/F13 → scroll on/off
+
+[general]
+passthrough_unbounded_keys = true
+hide_overlay_in_screen_share = true
+
+# ── Hotkeys globaux ──────────────────────────────────────────────
+[hotkeys]
+# Désactiver tous les défauts (conflits Save As, Finder, etc.)
+"Cmd+Shift+Space" = "__disabled__"
+"Cmd+Shift+G"     = "__disabled__"
+"Cmd+Shift+C"     = "__disabled__"
+"Cmd+Shift+S"     = "__disabled__"
+
+# Activation via Karabiner tap
+# Grille : F18 ouvre, F19 ferme (Karabiner gère le toggle)
+"F18" = ["action save_cursor_pos", "recursive_grid"]
+"F19" = ["action restore_cursor_pos", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+# Scroll : F17 ouvre, F13 ferme
+"F17" = "scroll"
+"F13" = ["exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+
+# Saut entre écrans + grille
+"Ctrl+1" = "exec /Users/aclemen1/.local/bin/neru-monitor U32R59x"
+"Ctrl+2" = "exec /Users/aclemen1/.local/bin/neru-monitor 'Built-in Retina Display'"
+"Ctrl+3" = "exec /Users/aclemen1/.local/bin/neru-monitor 'DELL P2415Q (1)'"
+"Ctrl+4" = "exec /Users/aclemen1/.local/bin/neru-monitor 'DELL P2415Q (2)'"
+
+# ── Hints & Grid désactivés (recursive grid fait tout) ───────────
+[hints]
+enabled = false
+
+[grid]
+enabled = false
+
+# ── Recursive Grid 3×3 main droite ──────────────────────────────
+[recursive_grid]
+enabled         = true
+grid_cols       = 3
+grid_rows       = 3
+keys            = "uiojklm,."
+min_size_width  = 20
+min_size_height = 20
+max_depth       = 10
+
+[recursive_grid.animation]
+enabled     = true
+duration_ms = 100
+
+[recursive_grid.ui]
+line_width                = 1
+label_background          = true
+sub_key_preview           = true
+sub_key_preview_font_size = 8
+
+[recursive_grid.hotkeys]
+"Escape" = ["action restore_cursor_pos", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+
+# Placer le curseur sans cliquer
+"Enter"       = ["action move_mouse", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+
+# Clics — Space = le geste le plus naturel
+"Space"       = ["action left_click", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+"Shift+Space" = ["action left_click", "action reset"]
+"Cmd+Space"   = ["action right_click", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+"Shift+M"     = "action middle_click"
+"Shift+D"     = "action mouse_down"
+"Shift+U"     = "action mouse_up"
+
+# Navigation grille
+"`"         = "toggle-cursor-follow-selection"
+"Backspace" = "action reset"
+";"         = ["action move_mouse", "scroll"]
+
+# Scroll sans quitter la grille (vim)
+"Ctrl+J" = "action scroll_down"
+"Ctrl+K" = "action scroll_up"
+"Ctrl+H" = "action scroll_left"
+"Ctrl+L" = "action scroll_right"
+"Ctrl+D" = "action page_down"
+"Ctrl+U" = "action page_up"
+
+# Flèches — 3 vitesses
+"Up"          = "action move_mouse_relative --dx=0 --dy=-25"
+"Down"        = "action move_mouse_relative --dx=0 --dy=25"
+"Left"        = "action move_mouse_relative --dx=-25 --dy=0"
+"Right"       = "action move_mouse_relative --dx=25 --dy=0"
+"Shift+Up"    = "action move_mouse_relative --dx=0 --dy=-5"
+"Shift+Down"  = "action move_mouse_relative --dx=0 --dy=5"
+"Shift+Left"  = "action move_mouse_relative --dx=-5 --dy=0"
+"Shift+Right" = "action move_mouse_relative --dx=5 --dy=0"
+"Cmd+Up"      = "action move_mouse_relative --dx=0 --dy=-500"
+"Cmd+Down"    = "action move_mouse_relative --dx=0 --dy=500"
+"Cmd+Left"    = "action move_mouse_relative --dx=-500 --dy=0"
+"Cmd+Right"   = "action move_mouse_relative --dx=500 --dy=0"
+
+
+# Désactiver les défauts confus
+"Shift+L" = "__disabled__"
+"Shift+R" = "__disabled__"
+"Shift+I" = "__disabled__"
+
+# ── Scroll mode (vim pur) ────────────────────────────────────────
+[scroll]
+scroll_step      = 50
+scroll_step_half = 500
+scroll_step_full = 1000000
+
+[scroll.hotkeys]
+"Escape" = ["exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+"j" = "action scroll_down"
+"k" = "action scroll_up"
+"h" = "action scroll_left"
+"l" = "action scroll_right"
+"u" = "action page_up"
+"d" = "action page_down"
+"t" = "action go_top"
+"b" = "action go_bottom"
+
+# Clics depuis le scroll
+"Space"     = ["action left_click", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+"Cmd+Space" = ["action right_click", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+"Shift+M"   = "action middle_click"
+"Shift+D"   = "action mouse_down"
+"Shift+U"   = "action mouse_up"
+
+# Transitions
+";"  = "action move_mouse --center"
+"'"  = "recursive_grid"
+
+# Ajustement fin
+"Up"          = "action move_mouse_relative --dx=0 --dy=-25"
+"Down"        = "action move_mouse_relative --dx=0 --dy=25"
+"Left"        = "action move_mouse_relative --dx=-25 --dy=0"
+"Right"       = "action move_mouse_relative --dx=25 --dy=0"
+"Shift+Up"    = "action move_mouse_relative --dx=0 --dy=-5"
+"Shift+Down"  = "action move_mouse_relative --dx=0 --dy=5"
+"Shift+Left"  = "action move_mouse_relative --dx=-5 --dy=0"
+"Shift+Right" = "action move_mouse_relative --dx=5 --dy=0"
+
+# Désactiver les défauts
+"Shift+L" = "__disabled__"
+"Shift+R" = "__disabled__"
+"Shift+I" = "__disabled__"
+"gg"      = "__disabled__"
+"Shift+G" = "__disabled__"
+
+# ── Curseur animé ────────────────────────────────────────────────
+[smooth_cursor]
+move_mouse_enabled = true
+steps              = 50
+max_duration       = 80
+
+# ── Indicateurs visuels ─────────────────────────────────────────
+[mode_indicator.scroll]
+enabled = true
+text    = "SCROLL"
+
+[mode_indicator.recursive_grid]
+enabled = true
+text    = "GRID"
+
+# ── Sticky modifiers ────────────────────────────────────────────
+[sticky_modifiers]
+enabled          = false
+
+# ── Systray ──────────────────────────────────────────────────────
+[systray]
+enabled = true

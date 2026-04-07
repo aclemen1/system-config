@@ -49,6 +49,7 @@
   "stillcolor" # Désactive le temporal dithering (FRC) sur Apple Silicon — réduit la fatigue oculaire
   "tailscale-app"
   "obsidian"
+  "y3owk1n/tap/neru"
   "mactex-no-gui"
 ]
   
