@@ -17,5 +17,7 @@
   "ffmpeg"
   "uv"
   "unisis-unil/tools/cube"
+  "unisis-unil/tools/bastion"
+  "unisis-unil/tools/endreas"
   "libpq"
 ]

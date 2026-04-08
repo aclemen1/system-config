@@ -224,6 +224,8 @@ in
         kctx = "kubectx";
         kns = "kubens";
         ccf = "claude --continue --fork-session";
+        b = "bastion";
+        e = "endreas";
       };
       initContent = ''
         fastfetch
