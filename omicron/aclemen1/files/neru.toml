@@ -27,7 +27,7 @@ hide_overlay_in_screen_share = true
 "F18" = ["action save_cursor_pos", "recursive_grid --cursor-selection-mode=hold"]
 "F19" = ["action restore_cursor_pos", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
 # Hints : F17 ouvre, F13 ferme (via tap Left Option / Karabiner)
-"F17" = "hints"
+"F17" = "hints --action=left_click"
 "F13" = ["exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
 # Scroll : Cmd+Shift+J
 "Cmd+Shift+J" = "scroll"
