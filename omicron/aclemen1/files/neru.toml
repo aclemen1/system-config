@@ -7,7 +7,8 @@
 #
 # Activation (toggle) :
 #   tap Left Ctrl    → F18 → grille on/off
-#   tap Left Option  → F17/F13 → scroll on/off
+#   tap Left Option  → F17/F13 → hints on/off
+#   Cmd+Shift+J     → scroll on/off
 
 [general]
 passthrough_unbounded_keys = true
@@ -23,11 +24,13 @@ hide_overlay_in_screen_share = true
 
 # Activation via Karabiner tap
 # Grille : F18 ouvre, F19 ferme (Karabiner gère le toggle)
-"F18" = ["action save_cursor_pos", "recursive_grid"]
+"F18" = ["action save_cursor_pos", "recursive_grid --cursor-selection-mode=hold"]
 "F19" = ["action restore_cursor_pos", "exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
-# Scroll : F17 ouvre, F13 ferme
-"F17" = "scroll"
+# Hints : F17 ouvre, F13 ferme (via tap Left Option / Karabiner)
+"F17" = "hints"
 "F13" = ["exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
+# Scroll : Cmd+Shift+J
+"Cmd+Shift+J" = "scroll"
 
 # Saut entre écrans + grille
 "Ctrl+1" = "exec /Users/aclemen1/.local/bin/neru-monitor U32R59x"
@@ -35,9 +38,12 @@ hide_overlay_in_screen_share = true
 "Ctrl+3" = "exec /Users/aclemen1/.local/bin/neru-monitor 'DELL P2415Q (1)'"
 "Ctrl+4" = "exec /Users/aclemen1/.local/bin/neru-monitor 'DELL P2415Q (2)'"
 
-# ── Hints & Grid désactivés (recursive grid fait tout) ───────────
+# ── Hints ────────────────────────────────────────────────────────
 [hints]
-enabled = false
+enabled = true
+
+[hints.hotkeys]
+"Escape" = ["exec /Users/aclemen1/.local/bin/neru-idle", "idle"]
 
 [grid]
 enabled = false

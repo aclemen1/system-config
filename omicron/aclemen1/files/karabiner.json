@@ -57,10 +57,10 @@
                         ]
                     },
                     {
-                        "description": "Toggle Neru scroll: F17 to open, F13 to close.",
+                        "description": "Toggle Neru hints: F17 to open, F13 to close.",
                         "manipulators": [
                             {
-                                "conditions": [{ "name": "neru_scroll", "type": "variable_if", "value": 0 }],
+                                "conditions": [{ "name": "neru_hints", "type": "variable_if", "value": 0 }],
                                 "from": {
                                     "key_code": "left_option",
                                     "modifiers": { "optional": ["any"] }
@@ -69,12 +69,12 @@
                                 "to": [{ "key_code": "left_option" }],
                                 "to_if_alone": [
                                     { "key_code": "f17" },
-                                    { "set_variable": { "name": "neru_scroll", "value": 1 } }
+                                    { "set_variable": { "name": "neru_hints", "value": 1 } }
                                 ],
                                 "type": "basic"
                             },
                             {
-                                "conditions": [{ "name": "neru_scroll", "type": "variable_if", "value": 1 }],
+                                "conditions": [{ "name": "neru_hints", "type": "variable_if", "value": 1 }],
                                 "from": {
                                     "key_code": "left_option",
                                     "modifiers": { "optional": ["any"] }
@@ -83,7 +83,7 @@
                                 "to": [{ "key_code": "left_option" }],
                                 "to_if_alone": [
                                     { "key_code": "f13" },
-                                    { "set_variable": { "name": "neru_scroll", "value": 0 } }
+                                    { "set_variable": { "name": "neru_hints", "value": 0 } }
                                 ],
                                 "type": "basic"
                             }
